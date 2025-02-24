@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addNumber(){
+            num1 = parseFloat(document.getElementById('num1').value);
+            num2 = parseFloat(document.getElementById('num2').value);
+            sum = num1 + num2;
+            document.getElementById('result1').innerText = "The sum is: "+sum+"\n";
+        }
+        function difference(){
+            num1 = parseFloat(document.getElementById('num1').value);
+            num2 = parseFloat(document.getElementById('num2').value);
+            diff = num1 - num2;
+            document.getElementById('result2').innerText = "The differnce is: "+diff+"\n";
+        }
+        function multi(){
+            num1 = parseFloat(document.getElementById('num1').value);
+            num2 = parseFloat(document.getElementById('num2').value);
+            mult = num1 * num2;
+            document.getElementById('result3').innerText = "The product is: "+mult+"\n";
+        }
+        function divi(){
+            num1 = parseFloat(document.getElementById('num1').value);
+            num2 = parseFloat(document.getElementById('num2').value);
+            div = num1 / num2;
+            document.getElementById('result4').innerText = "The division is: "+div+"\n";
+        }
+        function modu(){
+            num1 = parseFloat(document.getElementById('num1').value);
+            num2 = parseFloat(document.getElementById('num2').value);
+            mod = num1 % num2;
+            document.getElementById('result5').innerText = "The modulous is: "+mod+"\n";
+        }
+    </script>
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body>
+    <h1 class="text-center text-primary text-uppercase font-weight-bold text-4xl mb-5">Calculator</h1>
+    <div class="container mx-auto  justify-center items-center min-h-screen">
+        <div class="row text-center justify-content-center">
+            <label for="num1">NUMBER1: </label>
+            <input type="text" id="num1" placeholder="Enter the first number: "><br>
+            <label for="num2">NUMBER2: </label>
+            <input type="text" id="num2" placeholder="Enter the Second number: "><br><br>
+            <button type="submit" onclick="addNumber()">Add</button>&nbsp;&nbsp;&nbsp;
+            <button type="submit" onclick="difference()">diff</button>&nbsp;&nbsp;&nbsp;
+            <button type="submit" onclick="multi()">Mult</button>&nbsp;&nbsp;&nbsp;
+            <button type="submit" onclick="divi()">Div</button>&nbsp;&nbsp;&nbsp;
+            <button type="submit" onclick="modu()">Mod</button>&nbsp;&nbsp;&nbsp;<br>
+        </div>
+        <div class="row mx-auto flex justify-center items-center border-primary rounded-lg border-2 w-3/4 h-3/4 p-4">
+            <p id="result1"></p>
+            <p id="result2"></p>
+            <p id="result3"></p>
+            <p id="result4"></p>
+            <p id="result5"></p>
+        </div>
+    </div>
+</body>
+</html>

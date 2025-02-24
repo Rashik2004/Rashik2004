@@ -1,0 +1,6 @@
+@import "tailwindcss";
+.your-shadowed-item{
+    -webkit-box-shadow:-2px 1px 16px 13px rgba(62,66,66,0.13);
+  -moz-box-shadow: -2px 1px 16px 13px rgba(62,66,66,0.13);
+  box-shadow: -2px 1px 16px 13px rgba(62,66,66,0.13);
+  }

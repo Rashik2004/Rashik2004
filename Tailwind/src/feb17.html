@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body class=" bg-gradient-to-r from-blue-500 to-yellow-500 text-white">
+    <h1 class=" text-center text-5xl space-x-1.5 p-3 font-serif font-bold">Calculator</h1>
+    <div class=" text-center border-2 m-9 rounded-3xl shadow-2xl hover:shadow-gray-700 ease-in-out transition-shadow">
+        <button class=" border-2 rounded-2xl pl-3 pr-3 m-6 ur-shadowed-item" onclick="add()">ADD</button>
+        <button class=" border-2 rounded-2xl pl-3 pr-3 m-6 ur-shadowed-item" onclick="SUB()">SUB</button><br>
+        <button class=" border-2 rounded-2xl pl-3 pr-3 m-6 ur-shadowed-item" onclick="MULT()">MULT</button>
+        <button class=" border-2 rounded-2xl pl-3 pr-3 m-6 ur-shadowed-item" onclick="DIV()">DIV</button><br>
+        <button class=" border-2 rounded-2xl pl-3 pr-3 m-6 ur-shadowed-item" onclick="MOD()">MOD</button>
+    </div>
+
+    <script>
+        let a=12;
+        let b=8;
+        function add() {
+            console.log(a+b);
+        }
+        function SUB() {
+            console.log(a-b);
+        }
+        function DIV() {
+            console.log(a/b);
+        }
+        function MULT() {
+            console.log(a*b);
+        }
+        function MOD() {
+            console.log(a%b);
+        }
+    </script>
+</body>
+</html>

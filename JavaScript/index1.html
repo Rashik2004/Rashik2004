@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./feb17.js"></script>
+</head>
+<body>
+    <button onclick="greet()">Welcome</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+   <button onclick="fun()">Fun</button>
+    <!-- <h1>Hello World</h1> -->
+    <h1 class=" text-center text-5xl space-x-1.5 p-3 font-serif font-bold">Calculator</h1>
+    <div class=" text-center p-6">
+        <button class=" border-2 rounded-2xl pl-3 pr-3 m-6 " onclick="add()">ADD</button>
+        <button class=" border-2 rounded-2xl pl-3 pr-3 m-6" onclick="SUB()">SUB</button><br>
+        <button class=" border-2 rounded-2xl pl-3 pr-3 m-6" onclick="MULT()">MULT</button>
+        <button class=" border-2 rounded-2xl pl-3 pr-3 m-6" onclick="DIV()">DIV</button><br>
+        <button class=" border-2 rounded-2xl pl-3 pr-3 m-6" onclick="MOD()">MOD</button>
+    </div>
+
+    <script>
+        let a=12;
+        let b=8;
+        function add() {
+            console.log(a+b);
+        }
+        function SUB() {
+            console.log(a-b);
+        }
+        function DIV() {
+            console.log(a/b);
+        }
+        function MULT() {
+            console.log(a*b);
+        }
+        function MOD() {
+            console.log(a%b);
+        }
+    </script>
+</body>
+</html>
