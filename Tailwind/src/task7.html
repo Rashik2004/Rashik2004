@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./output.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    
+<body class="bg-amber-600">
+    <header class=" bg-black text-white">
+        <h1 class="text-3xl text-center pt-5 mb-5"> My Portfolio</h1>
+        <nav>
+            <ol class=" flex justify-center">
+                <li class=" pr-3 mb-3"><a href="#">Home</a></li>
+                <li class=" pr-3 mb-3"><a href="#">About</a></li>
+                <li class=" pr-3 mb-3"><a href="#">Projects</a></li>
+                <li class="mb-3"><a href="#">Contact</a></li>
+            </ol>
+        </nav>
+    </header>
+    <div class="container mx-auto flex justify-center bg-amber-600">
+        <div class="container mx-auto justify-center bg-amber-50 w-[35%] rounded-2xl m-7 p-6">
+            <h1 class=" text-left p-6 text-3xl w-[80%]">Create Your Own Web Presence</h1>
+            <div class=" bg-pink-100 m-6 rounded-2xl shadow-fuchsia-800 shadow-[-5px_5px_6px_0px_rgba(0,0,0,0.3)] h-56 flex justify-center items-center">
+                <h2 class="p-6 text-2xl">XYZ <br> lpu Jalandhar <br> INDIA </h2>
+            </div>
+            <div class=" bg-pink-100 m-6 rounded-2xl shadow-fuchsia-800 shadow-[-5px_5px_6px_0px_rgba(0,0,0,0.3)] h-56 flex justify-center items-center">
+                <h2 class="p-6 text-2xl">Languages <br> HTML <br> CSS </h2>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
