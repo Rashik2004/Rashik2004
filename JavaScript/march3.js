@@ -47,22 +47,52 @@ while(i<5){
 // }
 
 // objects in a javascript
-person={
-    name:"rashik",
-    age:21,
-    city:"Jamshedput",
-    country:"India"
-};
-// console.log(person);
-console.log(person.name);
-console.log(person.age);
-console.log(person.city);
-console.log(person.country);
+// person={
+//     name:"rashik",
+//     age:21,
+//     city:"Jamshedput",
+//     country:"India"
+// };
+// // console.log(person);
+// console.log(person.name);
+// console.log(person.age);
+// console.log(person.city);
+// console.log(person.country);
 
-//crating an person object using constructor
-person = new Object();
-person.name = "Ashmit";
-person.age = 20;
-person.city = "Jamshedpur";
-person.country = "India";
-console.log(person);
+// //crating an person object using constructor
+// person = new Object();
+// person.name = "Ashmit";
+// person.age = 20;
+// person.city = "Bokaro";
+// person.country = "India";
+// console.log(person);
+
+// console.log(person["age"]);
+
+// //function inside
+// person = {
+//     name: "Rashik",
+//     age: 21,
+//     city: "Jamshedpur",
+//     country: "India",
+//     display: function () {
+//         return this.name + " " + this.age + " " + this.city + " " + this.country;
+//     }
+// };
+
+//creating object car and update the object
+car = {
+    name: "BMW",
+    model: "X5",
+    color: "Black",
+    display: function () {
+        return this.name + " " + this.model + " " + this.color;
+    }
+};
+console.log(car.display());
+car.color = "White";
+car.model = "M4 CS";
+console.log(car);
+delete car.color;
+console.log(car);
+
