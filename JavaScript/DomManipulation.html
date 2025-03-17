@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <h1 id="head">This is the heading</h1>
+    <p class="content">This is a paragraph</p>
+    <div id="box">click over me</div>
+    <button onclick="changeText()" class="border">changeText</button>
+    <button onclick="changeColor()"class="border">changeColor</button>
+    <button onclick="toggleBox()"class="border">Hide/show</button>
+    <script>
+        let head = document.getElementById("head");
+        let content = document.getElementsByClassName("content");
+        let box = document.getElementById("box");
+        function changeText(){
+            document.getElementById("box").innerHTML = "Text changed";
+        }
+        function changeColor(){
+            document.getElementById("box").style.backgroundColor = "lightblue";
+        }
+        function toggleBox(){
+            box.style.display = box.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

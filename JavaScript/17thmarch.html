@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <header class="bg-black text-white">
+        <h1 class="text-center text-4xl ">ITC ROYAL BENGAL</h1>
+        <nav class="flex justify-center p-9">
+            <ul class="flex justify-center space-x-6">
+                <li class="hover:underline"><a href="intCA1.html">Home</a></li>
+                <li class="hover:underline"><a href="intCA2.html">About</a></li>
+                <li class="hover:underline"><a href="intCA3.html">Book DineIn</a></li>
+                <li class="hover:underline"><a href="intCA3.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- creating a slideshow div for my restraunt -->
+    <div class="flex justify-center items-stretch rounded-2xl">
+        <div id="slideshow" class="w-100vh h-[50%] object-cover">
+            <img src="./autumn-7493439_1280.jpg" alt="autumn" class="object-cover" >
+            <img src="./losangeles-7754986_1280.jpg" alt="losangeles"class="object-cover">
+            <img src="./mountains-7292778_1280.jpg" alt="newyork" class="object-cover">
+        </div>
+    </div>
+
+    <!-- creating a current timing clock using js -->
+    <div class="flex justify-center items-center">
+        <div id="clock" class="text-4xl"></div>
+    </div><br><br>
+
+    <!-- booking form for dine in -->
+    <h1 class="text-center text-4xl">DINE IN FORM</h1>
+    <div class="flex justify-center items-center">
+        <form class="text-center">
+            <div class="">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" class="border-2 rounded-lg p-2 m-2"><br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" class="border-2 rounded-lg p-2 m-2"><br>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" name="phone" id="phone" class="border-2 rounded-lg p-2 m-2"><br>
+
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date" class="border-2 rounded-lg p-2 m-2"><br>
+
+                <label for="time">Time:</label>
+                <input type="time" name="time" id="time" class="border-2 rounded-lg p-2 m-2"><br>
+
+                <button id="btn" type="submit" class="border-2 rounded-lg p-2 m-2 hover:bg-blue-300">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        let slideshow = document.getElementById("slideshow");
+        let images = slideshow.getElementsByTagName("img");
+        let i = 0;
+        setInterval(function(){
+            images[i].style.display = "none";
+            i = (i + 1) % images.length;
+            images[i].style.display = "block";
+        }, 2000);
+
+        //clock script
+        let clock = document.getElementById("clock");
+        setInterval(function(){
+            let date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            clock.innerHTML = hours + ":" + minutes + ":" + seconds;
+        }, 1000);
+
+        let btn= document.getElementById("btn");
+        btn.addEventListener("click", function(){
+            event.preventDefault();
+            btn.style.backgroundColor = "green";
+            btn.style.Color = "white";
+            btn.textContent = "Booked";
+        });
+    </script>
+</body>
+</html>
