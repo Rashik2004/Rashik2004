@@ -1,14 +1,98 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img name="slide" width="100%" height="100%" alt="timeslide">
+    <script>
+        var i = 0;
+        var time = 3000;
+        var images = Array();
+        images[0] = "losangeles-7754986_1280.jpg";
+        images[1] = "autumn-7493439_1280.jpg";
+        images[2] = "losangeles-7754986_1280.jpg";
+        images[3] = "fashion-7336161_1280.jpg";
+        images[4] = "mountains-7292778_1280.jpg";
+
+        function changeImg(){
+            document.slide.src = images[i];
+
+            if(i < images.length - 1){
+                i++;
+            } else {
+                i = 0;
+            }
+
+            setTimeout("changeImg()", 3000);
+        }
+        changeImg()
+    </script>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./march3.js"></script>
 </head>
 <body>
-    <form action="post">
+    <!-- <button onclick="start()">START</button>
+    <button onclick="stop()">STOP</button>
+    <p id="abc"></p>
+    <script>
+        var i ;
+        function start(){
+            i= setInterval(datetime, 1000);
+        }
+        function datetime(){
+            document.getElementById("abc").innerHTML = new Date(); document.getElementById("abc").style.cssText = " font-size: 30px; font-weight: bold; font-family: Arial; text-align: center; color: black; background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);-webkit-background-clip: text; -webkit-text-fill-color: transparent;";
+        }
+        function stop(){
+            clearInterval(i);
+        }
+    </script> -->
 
-    </form>
+    <!-- <h2 id="clock"></h2>
+    <script>
+        function updateClock(){
+            var now = new Date();
+            timeString = now.toLocaleTimeString();
+            document.getElementById("clock").innerHTML = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script> -->
+
+    <!-- <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="show()">Show Password</button>
+    <script>
+        function show(){
+            var x = document.getElementById("password");
+            if(x.type === "password"){
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script> -->
+
+    <!-- create a text area and count the number of words in the text area -->
+
+    <input type="textarea" id="text" placeholder="Enter Text" oninput="count()">
+    <br>
+    <p id="result">Word Count: <span id="words">0</span></p>
+    <script>
+        function count(){
+            var str = document.getElementById("text").value;
+            var words = str.split(" ");
+            document.getElementById("result").innerText = words.length;
+        }
+    </script>
+
 </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    <h1 id="heading">Hello world</h1>
+    <p id="content">This a paragraph </p>
+    <a id="link" href="#">click me </a>
+    <div id="box">This is a box</div>
+    <button id="btn">Change color</button>
+    <script>
+        var heading = document.getElementById("heading");
+        var content = document.getElementById("content");
+        var link = document.getElementById("link");
+        var box = document.getElementById("box");
+        var btn = document.getElementById("btn");
+        var body = document.getElementById("body");
+
+        heading.addEventListener("click", function(){
+            alert("Heading clicked");
+
+        });
+
+        content.addEventListener("mouseover", function(){
+            alert("Content hovered");
+        });
+
+        link.addEventListener("mouseout", function(){
+            body.style.backgroundColor = "white";
+            body.style.color = "black";
+        });
+
+        box.addEventListener("dblclick", function(){
+            alert("Box double clicked");
+        });
+
+        btn.addEventListener("click", function(){
+            box.style.backgroundColor = "yellow";
+            heading.style.color = "red";
+            content.style.fontSize = "30px";
+            body.style.backgroundColor = "black";
+            body.style.color = "white";
+          });
+    </script>
+</body>
+</html>

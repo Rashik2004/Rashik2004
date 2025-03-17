@@ -89,10 +89,10 @@ car = {
         return this.name + " " + this.model + " " + this.color;
     }
 };
+console.log(car);
 console.log(car.display());
 car.color = "White";
 car.model = "M4 CS";
-console.log(car);
 delete car.color;
 console.log(car);
 
