@@ -6,8 +6,54 @@
     <title>OCR Web App</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.0.2/tesseract.min.js"></script>
     <style>
-        video, canvas { width: 100%; max-width: 500px; }
-        button { margin-top: 10px; padding: 10px; }
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #00e676;
+            text-shadow: 0 0 10px #00e676;
+        }
+        video, canvas {
+            width: 100%;
+            max-width: 500px;
+            border: 2px solid #00e676;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00e676;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00e676;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #00c853;
+            transform: scale(1.05);
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #00e676;
+            width: 100%;
+            max-width: 500px;
+            min-height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -17,17 +63,21 @@
     <canvas id="canvas" style="display:none;"></canvas>
     <p><strong>Extracted Text:</strong></p>
     <div id="output"></div>
+    <audio id="captureSound" src="capture-sound.mp3" preload="auto"></audio> <!-- Add your sound file here -->
 
     <script>
         const video = document.getElementById('video');
         const canvas = document.getElementById('canvas');
         const output = document.getElementById('output');
         const captureBtn = document.getElementById('captureBtn');
+        const captureSound = document.getElementById('captureSound');
         const ctx = canvas.getContext('2d');
 
         async function startWebcam() {
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode: "environment" }
+                });
                 video.srcObject = stream;
             } catch (err) {
                 console.error("Error accessing webcam:", err);
@@ -43,6 +93,7 @@
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            captureSound.play(); // Play capture sound
             processImage();
         }
 
@@ -62,7 +113,12 @@
             });
         }
 
-        captureBtn.addEventListener("click", captureImage);
+        captureBtn.addEventListener("click", () => {
+            captureBtn.disabled = true; // Disable button to prevent multiple clicks
+            captureImage();
+            setTimeout(() => captureBtn.disabled = false, 1000); // Re-enable after 1 second
+        });
+
         startWebcam();
     </script>
 </body>
