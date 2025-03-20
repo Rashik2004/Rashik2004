@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OCR Web App</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.0.2/tesseract.min.js"></script>
+    <script async src="https://docs.opencv.org/4.x/opencv.js" onload="onOpenCvReady();"></script>
     <style>
         body {
             background-color: #121212;
@@ -18,16 +19,20 @@
             margin: 0;
             padding: 20px;
         }
+        .hidden {
+            display: none;
+        }
         h2 {
             color: #00e676;
             text-shadow: 0 0 10px #00e676;
         }
-        video, canvas {
+        video, canvas, img.previewImage {
             width: 100%;
             max-width: 500px;
             border: 2px solid #00e676;
             border-radius: 10px;
             box-shadow: 0 0 20px #00e676;
+            margin-top: 20px;
         }
         button {
             margin-top: 20px;
@@ -54,29 +59,80 @@
             max-width: 500px;
             min-height: 50px;
         }
+        #loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #00e676;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 230, 118, 0.3);
+            border-top: 4px solid #00e676;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-    <h2>Capture Image & Extract Text</h2>
-    <video id="video" autoplay playsinline></video>
-    <button id="captureBtn">Capture</button>
+    <div id="loading">
+        <div class="spinner"></div>
+        Loading...
+    </div>
+    <h2 style="display:none;">Capture Image & Extract Text</h2>
+    <video id="video" autoplay playsinline style="display:none;"></video>
+    <button id="captureBtn" style="display:none;">Capture</button>
+    <button id="restartBtn" style="display:none;">Restart Camera</button>
     <canvas id="canvas" style="display:none;"></canvas>
+    <img id="previewImage" class="previewImage" style="display:none;" alt="Captured Image Preview">
     <p><strong>Extracted Text:</strong></p>
-    <div id="output"></div>
-    <audio id="captureSound" src="capture-sound.mp3" preload="auto"></audio> <!-- Add your sound file here -->
+    <div id="output" style="display:none;"></div>
+    <audio id="captureSound" src="./iphone-camera-capture-6448.mp3" preload="auto"></audio> <!-- Ensure this file exists -->
 
     <script>
         const video = document.getElementById('video');
         const canvas = document.getElementById('canvas');
         const output = document.getElementById('output');
         const captureBtn = document.getElementById('captureBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        const previewImage = document.getElementById('previewImage');
         const captureSound = document.getElementById('captureSound');
+        const loading = document.getElementById('loading');
         const ctx = canvas.getContext('2d');
+        let stream;
+
+        function onOpenCvReady() {
+            console.log('OpenCV.js is ready.');
+            checkLibrariesLoaded();
+        }
+
+        function checkLibrariesLoaded() {
+            if (typeof Tesseract !== 'undefined' && typeof cv !== 'undefined') {
+                console.log('All libraries loaded.');
+                loading.style.display = 'none'; // Hide loading animation
+                document.querySelector('h2').style.display = 'block';
+                video.style.display = 'block';
+                captureBtn.style.display = 'block';
+                output.style.display = 'block';
+                startWebcam();
+            } else {
+                console.log('Libraries not loaded yet.');
+            }
+        }
 
         async function startWebcam() {
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({
-                    video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode: "environment" }
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { width: { ideal: 1280 }, height: { ideal: 720 }, facingMode: "environment" }
                 });
                 video.srcObject = stream;
             } catch (err) {
@@ -93,12 +149,56 @@
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            captureSound.play(); // Play capture sound
-            processImage();
+            if (captureSound) captureSound.play(); // Play capture sound if available
+
+            // Preprocess the image using OpenCV.js
+            preprocessImage();
+
+            // Show the preview of the captured image
+            const imageData = canvas.toDataURL('image/png');
+            previewImage.src = imageData;
+            previewImage.style.display = 'block';
+
+            // Stop the video stream
+            stopWebcam();
+
+            // Ask user for confirmation to proceed with OCR
+            const confirmImage = confirm("Do you want to process this image?");
+            if (confirmImage) {
+                processImage(imageData);
+            } else {
+                previewImage.style.display = 'none'; // Hide preview if not confirmed
+                restartBtn.style.display = 'block'; // Show restart button
+            }
         }
 
-        function processImage() {
-            const imageData = canvas.toDataURL('image/png');
+        function preprocessImage() {
+            try {
+                if (cv && cv.imread) {
+                    const src = cv.imread(canvas);
+                    const dst = new cv.Mat();
+                    cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY, 0);
+                    cv.imshow(canvas, dst);
+                    src.delete();
+                    dst.delete();
+                } else {
+                    console.error("OpenCV.js is not ready.");
+                }
+            } catch (error) {
+                console.error("Error during image preprocessing:", error);
+            }
+        }
+
+        function stopWebcam() {
+            if (stream) {
+                const tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+                video.srcObject = null; // Stop the video feed
+            }
+        }
+
+        function processImage(imageData) {
+            loading.style.display = 'block'; // Show loading animation
             Tesseract.recognize(
                 imageData,
                 'eng',
@@ -106,10 +206,16 @@
                     logger: m => console.log(m) // Log progress
                 }
             ).then(({ data: { text } }) => {
+                loading.style.display = 'none'; // Hide loading animation
                 output.innerText = text.trim() || "No text found.";
+                previewImage.style.display = 'none'; // Hide preview after processing
+                restartBtn.style.display = 'block'; // Show restart button after processing
             }).catch(err => {
+                loading.style.display = 'none'; // Hide loading animation
                 console.error("OCR Error:", err);
                 output.innerText = "Error processing image.";
+                previewImage.style.display = 'none'; // Hide preview on error
+                restartBtn.style.display = 'block'; // Show restart button on error
             });
         }
 
@@ -119,7 +225,15 @@
             setTimeout(() => captureBtn.disabled = false, 1000); // Re-enable after 1 second
         });
 
-        startWebcam();
+        restartBtn.addEventListener("click", () => {
+            restartBtn.style.display = 'none'; // Hide restart button
+            startWebcam(); // Restart the webcam
+        });
+
+        // Check if Tesseract.js is loaded
+        if (typeof Tesseract !== 'undefined') {
+            checkLibrariesLoaded();
+        }
     </script>
 </body>
 </html>
