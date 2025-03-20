@@ -19,9 +19,6 @@
             margin: 0;
             padding: 20px;
         }
-        .hidden {
-            display: none;
-        }
         h2 {
             color: #00e676;
             text-shadow: 0 0 10px #00e676;
@@ -96,7 +93,7 @@
     <img id="previewImage" class="previewImage" style="display:none;" alt="Captured Image Preview">
     <p><strong>Extracted Text:</strong></p>
     <div id="output" style="display:none;"></div>
-    <audio id="captureSound" src="./iphone-camera-capture-6448.mp3" preload="auto"></audio> <!-- Ensure this file exists -->
+    <audio id="captureSound" src="capture-sound.mp3" preload="auto"></audio> <!-- Ensure this file exists -->
 
     <script>
         const video = document.getElementById('video');
@@ -118,7 +115,7 @@
         function checkLibrariesLoaded() {
             if (typeof Tesseract !== 'undefined' && typeof cv !== 'undefined') {
                 console.log('All libraries loaded.');
-                loading.style.display = 'none'; // Hide loading animation
+                loading.style.display = 'none';
                 document.querySelector('h2').style.display = 'block';
                 video.style.display = 'block';
                 captureBtn.style.display = 'block';
@@ -149,7 +146,7 @@
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            if (captureSound) captureSound.play(); // Play capture sound if available
+            if (captureSound) captureSound.play();
 
             // Preprocess the image using OpenCV.js
             preprocessImage();
@@ -167,8 +164,8 @@
             if (confirmImage) {
                 processImage(imageData);
             } else {
-                previewImage.style.display = 'none'; // Hide preview if not confirmed
-                restartBtn.style.display = 'block'; // Show restart button
+                previewImage.style.display = 'none';
+                restartBtn.style.display = 'block';
             }
         }
 
@@ -177,7 +174,16 @@
                 if (cv && cv.imread) {
                     const src = cv.imread(canvas);
                     const dst = new cv.Mat();
+
+                    // Convert to grayscale
                     cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY, 0);
+
+                    // Apply Gaussian blur
+                    cv.GaussianBlur(dst, dst, new cv.Size(5, 5), 0, 0, cv.BORDER_DEFAULT);
+
+                    // Apply thresholding
+                    cv.threshold(dst, dst, 127, 255, cv.THRESH_BINARY);
+
                     cv.imshow(canvas, dst);
                     src.delete();
                     dst.delete();
@@ -193,41 +199,54 @@
             if (stream) {
                 const tracks = stream.getTracks();
                 tracks.forEach(track => track.stop());
-                video.srcObject = null; // Stop the video feed
+                video.srcObject = null;
             }
         }
 
+        function correctText(text) {
+            const corrections = {
+                'Jor': 'for',
+                // Add more common corrections here
+            };
+            Object.keys(corrections).forEach(key => {
+                text = text.replace(new RegExp(key, 'g'), corrections[key]);
+            });
+            return text;
+        }
+
         function processImage(imageData) {
-            loading.style.display = 'block'; // Show loading animation
+            loading.style.display = 'block';
             Tesseract.recognize(
                 imageData,
                 'eng',
                 {
-                    logger: m => console.log(m) // Log progress
+                    logger: m => console.log(m),
+                    psm: 6 // Try different values
                 }
             ).then(({ data: { text } }) => {
-                loading.style.display = 'none'; // Hide loading animation
-                output.innerText = text.trim() || "No text found.";
-                previewImage.style.display = 'none'; // Hide preview after processing
-                restartBtn.style.display = 'block'; // Show restart button after processing
+                loading.style.display = 'none';
+                const correctedText = correctText(text.trim());
+                output.innerText = correctedText || "No text found.";
+                previewImage.style.display = 'none';
+                restartBtn.style.display = 'block';
             }).catch(err => {
-                loading.style.display = 'none'; // Hide loading animation
+                loading.style.display = 'none';
                 console.error("OCR Error:", err);
                 output.innerText = "Error processing image.";
-                previewImage.style.display = 'none'; // Hide preview on error
-                restartBtn.style.display = 'block'; // Show restart button on error
+                previewImage.style.display = 'none';
+                restartBtn.style.display = 'block';
             });
         }
 
         captureBtn.addEventListener("click", () => {
-            captureBtn.disabled = true; // Disable button to prevent multiple clicks
+            captureBtn.disabled = true;
             captureImage();
-            setTimeout(() => captureBtn.disabled = false, 1000); // Re-enable after 1 second
+            setTimeout(() => captureBtn.disabled = false, 1000);
         });
 
         restartBtn.addEventListener("click", () => {
-            restartBtn.style.display = 'none'; // Hide restart button
-            startWebcam(); // Restart the webcam
+            restartBtn.style.display = 'none';
+            startWebcam();
         });
 
         // Check if Tesseract.js is loaded
