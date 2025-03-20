@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class work</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .submitted {
+            background-color: rgb(215, 177, 94);
+            color: white;
+        }
+    </style>
+</head>
+<body class="text-center text-xs bg-[#205781] text-yellow-100">
+
+    <header class="bg-[#143D60] text-white pt-4">
+        <h1 class="text-center text-4xl ">Expedition With Rash#</h1>
+        <nav class="flex justify-center p-6">
+            <ul class="flex justify-center space-x-6">
+                <li class="hover:underline"><a href="intCA1.html">Home</a></li>
+                <li class="hover:underline"><a href="intCA2.html">Tours</a></li>
+                <li class="hover:underline"><a href="intCA3.html">Package</a></li>
+                <li class="hover:underline"><a href="intCA3.html">Contact</a></li>
+            </ul><br>
+        </nav>
+    </header>
+
+    <div class="m-4" id="box" >
+        <div class="grid grid-cols-3 gap-4">
+            <div class="bg bg-[#F5ECE0] text-black p-4">
+                <div>
+                    <img src="./autumn-7493439_1280.jpg" alt="img1">
+                </div>
+                <div>
+                    <h1 class="font-semibold">Autumn Landscape</h1>
+                    <a href="#" id="read1" onclick="toggleBox('content1')">read more!</a>
+                    <p id="content1" style="display: none;"> The first image showcases a breathtaking autumn scene, where vibrant hues of red, orange, and yellow leaves reflect on a tranquil lake. The trees, shedding their leaves, create a picturesque tapestry of colors. This serene setting invites viewers to appreciate the fleeting beauty of fall, evoking a sense of peace and connection with nature.</p>
+                </div>
+            </div>
+
+            <div class="bg bg-[#F5ECE0] text-black p-4">
+                <div>
+                    <img src="./losangeles-7754986_1280.jpg" alt="img2">
+                </div>
+                <div>
+                    <h1 class="font-semibold">Cityscape at Sunset</h1>
+                    <a href="#" id="read2" onclick="toggleBox('content2')">read more!</a>
+                    <p id="content2" style="display: none;"> The second image captures a stunning sunset over a cityscape, with a Ferris wheel silhouetted against a sky painted in shades of orange and pink. The scene exudes a sense of wonder and adventure, as the vibrant colors blend seamlessly with the urban skyline, highlighting the harmonious coexistence of nature's beauty and human innovation.</p>
+                </div>
+            </div>
+            <div class="bg bg-[#F5ECE0] text-black p-4">
+                <div>
+                    <img src="./mountains-7292778_1280.jpg" alt="img3">
+                </div>
+                <div>
+                    <h1 class="font-semibold">Mountain Range</h1>
+                    <a href="#" id="read3" onclick="toggleBox('content3')">read more!</a>
+                    <p id="content3" style="display: none;"> The third image presents a vast, rugged mountain range under a soft, cloudy sky. The expansive landscape, with its rolling hills and distant peaks, evokes a sense of awe and exploration. The muted earth tones and gentle light create a tranquil atmosphere, inviting viewers to imagine the adventures and discoveries that await in such majestic terrain.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button type="button" id="submitBtn" class="border-2 rounded-lg p-2 m-2">Submit</button>
+                <button type="button" id="hide" onclick="tooglebox1()" class="border-2 rounded-lg p-2 m-2">HIDE</button>
+    </div>
+    <script>
+        function toggleBox(contentId) {
+            let content = document.getElementById(contentId);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+        function tooglebox1(){
+            box.style.display = box.style.display === "none" ? "block" : "none";
+        }
+
+
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            alert("Form successfully submitted!");
+            this.textContent = "Submitted";
+            this.classList.add("submitted");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Web App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.0.2/tesseract.min.js"></script>
+    <style>
+        video, canvas { width: 100%; max-width: 500px; }
+        button { margin-top: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Capture Image & Extract Text</h2>
+    <video id="video" autoplay playsinline></video>
+    <button id="captureBtn">Capture</button>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <p><strong>Extracted Text:</strong></p>
+    <div id="output"></div>
+
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const output = document.getElementById('output');
+        const captureBtn = document.getElementById('captureBtn');
+        const ctx = canvas.getContext('2d');
+
+        async function startWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+                video.srcObject = stream;
+            } catch (err) {
+                console.error("Error accessing webcam:", err);
+                output.innerText = "Webcam access denied. Please allow camera permissions.";
+            }
+        }
+
+        function captureImage() {
+            if (!video.srcObject) {
+                output.innerText = "Error: Webcam not available.";
+                return;
+            }
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            processImage();
+        }
+
+        function processImage() {
+            const imageData = canvas.toDataURL('image/png');
+            Tesseract.recognize(
+                imageData,
+                'eng',
+                {
+                    logger: m => console.log(m) // Log progress
+                }
+            ).then(({ data: { text } }) => {
+                output.innerText = text.trim() || "No text found.";
+            }).catch(err => {
+                console.error("OCR Error:", err);
+                output.innerText = "Error processing image.";
+            });
+        }
+
+        captureBtn.addEventListener("click", captureImage);
+        startWebcam();
+    </script>
+</body>
+</html>

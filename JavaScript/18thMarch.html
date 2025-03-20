@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <button id="box">Click Me</button>
+    <input type="text" id="nameinput" placeholder="Enter your name here">
+    <br>
+    <p>Typed Name: </p>
+    <script>
+        document.querySelector("button").onclick= function(){
+            alert("button clicked.");
+        }
+        document.getElementById("box").onmouseover= function(){
+            box.style.backgroundColor = "green";
+            box.style.color = "white";
+        }
+        document.getElementById("box").onmouseout= function(){
+            box.style.backgroundColor = "cyan";
+            box.style.color = "black";
+            box.style.borderRadius="20px";
+        }
+        document.getElementById("nameinput").oninput = function(){
+            document.querySelector("p").innerText = "Typed Name: " + this.value;
+        }
+    </script>
+</body>
+</html>
