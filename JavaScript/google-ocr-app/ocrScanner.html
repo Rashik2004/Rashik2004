@@ -30,7 +30,7 @@
             border-radius: 10px;
             box-shadow: 0 0 20px #00e676;
             margin-top: 20px;
-            object-fit: cover; /* Ensures the video fills the container */
+            object-fit: cover;
         }
         button {
             margin-top: 20px;
@@ -144,7 +144,6 @@
                 output.innerText = "Error: Webcam not available.";
                 return;
             }
-            const aspectRatio = video.videoWidth / video.videoHeight;
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -181,6 +180,17 @@
 
                     // Convert to grayscale
                     cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY, 0);
+
+                    // Calculate the average pixel intensity
+                    const mean = cv.mean(gray)[0];
+
+                    // If the mean intensity is low, the image is likely inverted
+                    const isInverted = mean < 128;
+
+                    if (isInverted) {
+                        // Invert colors
+                        cv.bitwise_not(gray, gray);
+                    }
 
                     // Apply Gaussian blur to reduce noise
                     cv.GaussianBlur(gray, blurred, new cv.Size(5, 5), 0);
