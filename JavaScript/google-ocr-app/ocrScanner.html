@@ -173,11 +173,27 @@
             try {
                 if (cv && cv.imread) {
                     const src = cv.imread(canvas);
-                    const dst = new cv.Mat();
-                    cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY, 0);
-                    cv.imshow(canvas, dst);
+                    const gray = new cv.Mat();
+                    const blurred = new cv.Mat();
+                    const thresholded = new cv.Mat();
+
+                    // Convert to grayscale
+                    cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY, 0);
+
+                    // Apply Gaussian blur to reduce noise
+                    cv.GaussianBlur(gray, blurred, new cv.Size(5, 5), 0);
+
+                    // Apply adaptive thresholding
+                    cv.adaptiveThreshold(blurred, thresholded, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 2);
+
+                    // Show the processed image on the canvas
+                    cv.imshow(canvas, thresholded);
+
+                    // Clean up
                     src.delete();
-                    dst.delete();
+                    gray.delete();
+                    blurred.delete();
+                    thresholded.delete();
                 } else {
                     console.error("OpenCV.js is not ready.");
                 }
@@ -200,7 +216,8 @@
                 imageData,
                 'eng',
                 {
-                    logger: m => console.log(m) // Log progress
+                    logger: m => console.log(m), // Log progress
+                    tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,. ' // Whitelist common characters
                 }
             ).then(({ data: { text } }) => {
                 loading.style.display = 'none'; // Hide loading animation
