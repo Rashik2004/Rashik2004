@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OCR Web App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.0.2/tesseract.min.js"></script>
+    <script async src="https://docs.opencv.org/4.x/opencv.js" onload="onOpenCvReady();"></script>
     <style>
         body {
             background-color: #121212;
@@ -105,13 +107,23 @@
         const ctx = canvas.getContext('2d');
         let stream;
 
+        function onOpenCvReady() {
+            console.log('OpenCV.js is ready.');
+            checkLibrariesLoaded();
+        }
+
         function checkLibrariesLoaded() {
-            loading.style.display = 'none';
-            document.querySelector('h2').style.display = 'block';
-            video.style.display = 'block';
-            captureBtn.style.display = 'block';
-            output.style.display = 'block';
-            startWebcam();
+            if (typeof Tesseract !== 'undefined' && typeof cv !== 'undefined') {
+                console.log('All libraries loaded.');
+                loading.style.display = 'none'; // Hide loading animation
+                document.querySelector('h2').style.display = 'block';
+                video.style.display = 'block';
+                captureBtn.style.display = 'block';
+                output.style.display = 'block';
+                startWebcam();
+            } else {
+                console.log('Libraries not loaded yet.');
+            }
         }
 
         async function startWebcam() {
@@ -134,7 +146,10 @@
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            if (captureSound) captureSound.play();
+            if (captureSound) captureSound.play(); // Play capture sound if available
+
+            // Preprocess the image using OpenCV.js
+            preprocessImage();
 
             // Show the preview of the captured image
             const imageData = canvas.toDataURL('image/png');
@@ -149,8 +164,25 @@
             if (confirmImage) {
                 processImage(imageData);
             } else {
-                previewImage.style.display = 'none';
-                restartBtn.style.display = 'block';
+                previewImage.style.display = 'none'; // Hide preview if not confirmed
+                restartBtn.style.display = 'block'; // Show restart button
+            }
+        }
+
+        function preprocessImage() {
+            try {
+                if (cv && cv.imread) {
+                    const src = cv.imread(canvas);
+                    const dst = new cv.Mat();
+                    cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY, 0);
+                    cv.imshow(canvas, dst);
+                    src.delete();
+                    dst.delete();
+                } else {
+                    console.error("OpenCV.js is not ready.");
+                }
+            } catch (error) {
+                console.error("Error during image preprocessing:", error);
             }
         }
 
@@ -158,48 +190,47 @@
             if (stream) {
                 const tracks = stream.getTracks();
                 tracks.forEach(track => track.stop());
-                video.srcObject = null;
+                video.srcObject = null; // Stop the video feed
             }
         }
 
         function processImage(imageData) {
-            loading.style.display = 'block';
-            // Send the image to the server for processing
-            fetch('/process-image', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ imageData: imageData }),
-            })
-            .then(response => response.json())
-            .then(data => {
-              loading.style.display = 'none';
-              output.innerText = data.text || "No text found.";
-              previewImage.style.display = 'none';
-              restartBtn.style.display = 'block';
-            })
-            .catch(error => {
-              loading.style.display = 'none';
-              console.error('Error:', error);
-              output.innerText = "Error processing image.";
-              previewImage.style.display = 'none';
-              restartBtn.style.display = 'block';
+            loading.style.display = 'block'; // Show loading animation
+            Tesseract.recognize(
+                imageData,
+                'eng',
+                {
+                    logger: m => console.log(m) // Log progress
+                }
+            ).then(({ data: { text } }) => {
+                loading.style.display = 'none'; // Hide loading animation
+                output.innerText = text.trim() || "No text found.";
+                previewImage.style.display = 'none'; // Hide preview after processing
+                restartBtn.style.display = 'block'; // Show restart button after processing
+            }).catch(err => {
+                loading.style.display = 'none'; // Hide loading animation
+                console.error("OCR Error:", err);
+                output.innerText = "Error processing image.";
+                previewImage.style.display = 'none'; // Hide preview on error
+                restartBtn.style.display = 'block'; // Show restart button on error
             });
-          }
+        }
+
         captureBtn.addEventListener("click", () => {
-            captureBtn.disabled = true;
+            captureBtn.disabled = true; // Disable button to prevent multiple clicks
             captureImage();
-            setTimeout(() => captureBtn.disabled = false, 1000);
+            setTimeout(() => captureBtn.disabled = false, 1000); // Re-enable after 1 second
         });
 
         restartBtn.addEventListener("click", () => {
-            restartBtn.style.display = 'none';
-            startWebcam();
+            restartBtn.style.display = 'none'; // Hide restart button
+            startWebcam(); // Restart the webcam
         });
 
-        // Check if the page is loaded
-        window.onload = checkLibrariesLoaded;
+        // Check if Tesseract.js is loaded
+        if (typeof Tesseract !== 'undefined') {
+            checkLibrariesLoaded();
+        }
     </script>
 </body>
 </html>
