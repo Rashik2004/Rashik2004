@@ -202,14 +202,6 @@
             }
         }
 
-        function stopWebcam() {
-            if (stream) {
-                const tracks = stream.getTracks();
-                tracks.forEach(track => track.stop());
-                video.srcObject = null; // Stop the video feed
-            }
-        }
-
         function processImage(imageData) {
             loading.style.display = 'block'; // Show loading animation
             Tesseract.recognize(
@@ -232,6 +224,15 @@
                 restartBtn.style.display = 'block'; // Show restart button on error
             });
         }
+
+        function stopWebcam() {
+            if (stream) {
+                const tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+                video.srcObject = null; // Stop the video feed
+            }
+        }
+
 
         captureBtn.addEventListener("click", () => {
             captureBtn.disabled = true; // Disable button to prevent multiple clicks
