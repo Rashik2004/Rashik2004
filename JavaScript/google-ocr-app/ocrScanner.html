@@ -30,6 +30,7 @@
             border-radius: 10px;
             box-shadow: 0 0 20px #00e676;
             margin-top: 20px;
+            object-fit: cover; /* Ensures the video fills the container */
         }
         button {
             margin-top: 20px;
@@ -129,7 +130,7 @@
         async function startWebcam() {
             try {
                 stream = await navigator.mediaDevices.getUserMedia({
-                    video: { width: { ideal: 1280 }, height: { ideal: 720 }, facingMode: "environment" }
+                    video: { width: { ideal: 1920 }, height: { ideal: 1080 }, facingMode: "environment" }
                 });
                 video.srcObject = stream;
             } catch (err) {
@@ -143,6 +144,7 @@
                 output.innerText = "Error: Webcam not available.";
                 return;
             }
+            const aspectRatio = video.videoWidth / video.videoHeight;
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -202,6 +204,14 @@
             }
         }
 
+        function stopWebcam() {
+            if (stream) {
+                const tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+                video.srcObject = null; // Stop the video feed
+            }
+        }
+
         function processImage(imageData) {
             loading.style.display = 'block'; // Show loading animation
             Tesseract.recognize(
@@ -224,15 +234,6 @@
                 restartBtn.style.display = 'block'; // Show restart button on error
             });
         }
-
-        function stopWebcam() {
-            if (stream) {
-                const tracks = stream.getTracks();
-                tracks.forEach(track => track.stop());
-                video.srcObject = null; // Stop the video feed
-            }
-        }
-
 
         captureBtn.addEventListener("click", () => {
             captureBtn.disabled = true; // Disable button to prevent multiple clicks
