@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/RashikGhosh/RashikGhosh/blob/main/banner.png" alt="Banner Image">
+<img src="./rashprop1.jpg" alt="Banner Image" style="border-radius: 50%;">
 </p>
 
 ---
@@ -37,7 +37,7 @@
 ### 📈 GitHub Stats
 
 <p align="center">
-  <img src="./rashprop1.jpg" alt="Rashik's GitHub Stats">
+  <img src="https://github-readme-stats.vercel.app/api?username=RashikGhosh&show_icons=true&theme=radical" alt="Rashik's GitHub Stats">
 </p>
 
 <p align="center">
