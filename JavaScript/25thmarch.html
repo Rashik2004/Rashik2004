@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key pressed</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="keyInput" placeholder="press the key">
+    <p>Key Pressed: <span id="keyOutput"></span></p>
+    <script>
+        document.getElementById("keyInput").onkeypress=function(event){
+            document.getElementById("keyOutput").innerText=event.key;
+        };
+
+    </script>
+</body>
+</html>
