@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changeImg On Click</title>
+</head>
+<body>
+    <img id="mainImg" src="./autumn-7493439_1280.jpg" width="600" height="400" alt="img1">
+    <br>
+    <img src="./autumn-7493439_1280.jpg" width="80" height="60" alt="img1" onclick="changeImg(this)">
+    <img src="./losangeles-7754986_1280.jpg" width="80" height="60" alt="img2"  onclick="changeImg(this)">
+    <img src="./mountains-7292778_1280.jpg" width="80" height="60" alt="img3" onclick="changeImg(this)">
+    <script>
+        function changeImg(img){
+            document.getElementById("mainImg").src=img.src;
+        }
+    </script>
+</body>
+</html>

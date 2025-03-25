@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-<img src="./rashprop1.jpg" alt="Banner Image" style="border-radius: 50%;">
+<img src="./rashprop1.jpg" alt="Banner Image" style="border-radius: 50%; width: 150px; height: 150px;">
 </p>
 
 ---
