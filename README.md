@@ -4,11 +4,6 @@
   <img src="https://img.shields.io/badge/Software%20Developer-Always%20Learning-brightgreen" alt="Software Developer">
   <img src="https://img.shields.io/badge/Web%20Developer-Exploring%20New%20Horizons-blue" alt="Web Developer">
 </p>
-
-<p align="center">
-<img src="./rashprop1.jpg" alt="Banner Image" style="border-radius: 50%; width: 150px; height: 150px;">
-</p>
-
 ---
 
 ### 👋 Hi, I’m Rashik Ghosh
