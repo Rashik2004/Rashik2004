@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .lightbox{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img{
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+    </style>
+</head>
+<body>
+    <img class="img" src="./autumn-7493439_1280.jpg" alt="" onclick="show(this.src)">
+    <img class="img" src="./losangeles-7754986_1280.jpg" alt="" onclick="show(this.src)">
+    <div id="lightbox" onclick="this.style.display='none'">
+        <img alt="" id="lightbox-img">
+    </div>
+    <script>
+        function show(src){
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox').style.justifyContent = 'center';
+            document.getElementById('lightbox').style.alignItems = 'center';
+            document.getElementById('lightbox').style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            document.getElementById('lightbox').style.position = 'fixed';
+            document.getElementById('lightbox').style.top = '0';
+            document.getElementById('lightbox').style.left = '0';
+            document.getElementById('lightbox').style.width = '100%';
+            document.getElementById('lightbox').style.height = '100%';
+            document.getElementById('lightbox').style.zIndex = '1000';
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox').style.justifyContent = 'center';
+            document.getElementById('lightbox').style.alignItems = 'center';
+            document.getElementById('lightbox').style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            document.getElementById('lightbox-img').src = src;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            list-style: none;
+            text-decoration: none;
+
+        }
+        li{
+            display: inline;
+            margin: 0 15px;
+        }
+        li a{
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+        li a:hover{
+            text-decoration: underline;
+        }
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h2{
+            color: #7e86ff;
+            text-align: center;
+        }
+        header{
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .lightbox{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img{
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .cat{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="text-align: center;">
+            <h1>Company Name</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Welcome to Our E-commerce Site</h2>
+        <div id="cat" style="text-align: center;">
+            <img src="https://cdn.pixabay.com/photo/2023/08/11/10/15/watch-8183268_1280.jpg" alt="Product 1" onclick="show(this.src)" style="width: 200px; height: 200px; margin: 10px; object-fit: cover;">
+            <img src="https://cdn.pixabay.com/photo/2012/11/07/02/07/jugs-64975_1280.jpg" alt="Product 2" onclick="show(this.src)" style="width: 200px; height: 200px; margin: 10px; object-fit: cover;">
+            <img src="https://cdn.pixabay.com/photo/2021/08/03/06/47/clock-6518632_1280.jpg" alt="Product 3" onclick="show(this.src)" style="width: 200px; height: 200px; margin: 10px; object-fit: cover;">
+            <img src="https://cdn.pixabay.com/photo/2017/08/20/10/39/leather-shoes-2661249_1280.jpg" alt="Product 4" onclick="show(this.src)" style="width: 200px; height: 200px; margin: 10px; object-fit: cover;">
+        </div>
+        <div id="lightbox" onclick="this.style.display='none'">
+            <img id="lightbox-img" alt="Lightbox Image">
+        </div>
+    </main>
+    <script>
+        function show(src){
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox').style.justifyContent = 'center';
+            document.getElementById('lightbox').style.alignItems = 'center';
+            document.getElementById('lightbox').style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            document.getElementById('lightbox').style.position = 'fixed';
+            document.getElementById('lightbox').style.top = '0';
+            document.getElementById('lightbox').style.left = '0';
+            document.getElementById('lightbox').style.width = '100%';
+            document.getElementById('lightbox').style.height = '100%';
+            document.getElementById('lightbox').style.zIndex = '1000';
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox').style.justifyContent = 'center';
+            document.getElementById('lightbox').style.alignItems = 'center';
+            document.getElementById('lightbox').style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            document.getElementById('lightbox-img').src = src;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS Blood Donation Camp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        header p {
+            margin: 5px 0 10px;
+            font-size: 1.2rem;
+        }
+        nav {
+            background-color: #b71c1c;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        #events h2{
+            color: #b71c1c;
+        }
+        #events ul {
+            list-style: none;
+            padding: 0;
+        }
+        #events ul li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        #gallery {
+            background-color: #f5f5f5;
+            padding: 20px 0;
+        }
+        footer {
+            background-color: #b71c1c;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        #home{
+            background-image: url("https://cdn.pixabay.com/photo/2013/03/07/14/31/blood-bags-91170_1280.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-size: larger;
+            text-align: center;
+            padding: 100px 0;
+        }
+        .slideshow-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #slideshow {
+            width: 100vw;
+            height: 50vh;
+            display: flex;
+        }
+
+        #slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20%;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form input, form select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .gallery h2{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>National Service Scheme (NSS)</h1>
+        <p>Blood Donation Camp - Donate Blood, Save Lives</p>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div id="home">
+            <h2>Welcome to NSS Blood Donation Camp</h2>
+            <p>Donate Blood, Save Lives</p>
+        </div>
+        <div id="about">
+            <h2 style="color: #b71c1c;">About NSS Blood Donation Camp</h2>
+            <p>NSS Blood Donation Camp is an initiative by the National Service Scheme (NSS) to encourage people to donate blood and save lives. Blood donation is a noble act that can help patients in need of blood transfusion due to accidents, surgeries, or medical conditions. By donating blood, you can make a difference in someone's life and contribute to the well-being of society.</p>
+        </div>
+        <div id="events">
+            <h2>Upcoming Events</h2>
+            <ul>
+                <li>Blood Donation Camp - Date: 25th March 2025, Time: 9:00 AM - 5:00 PM</li>
+                <li>Blood Donation Awareness Seminar - Date: 28th March 2025, Time: 2:00 PM - 4:00 PM</li>
+                <li>Blood Donation Drive - Date: 31st March 2025, Time: 10:00 AM - 3:00 PM</li>
+            </ul>
+        </div>
+        <div id="gallery">
+            <h2>Gallery</h2>
+            <div class="slideshow-container">
+                <div id="slideshow">
+                    <img src="./autumn-7493439_1280.jpg" alt="autumn">
+                    <img src="./losangeles-7754986_1280.jpg" alt="losangeles">
+                    <img src="./mountains-7292778_1280.jpg" alt="newyork">
+                </div>
+            </div>
+
+        </div>
+        <div class="slideshow-container">
+            <div class="slideshow">
+                <img id="mainImg" src="https://cdn.pixabay.com/photo/2021/04/22/19/59/corona-6200014_1280.jpg" width="600" height="400" alt="img1">
+                <br>
+                <img src="https://cdn.pixabay.com/photo/2020/02/19/06/23/earth-4861456_1280.jpg" width="80" height="60" alt="img1" onclick="changeImg(this)">
+                <img src="https://cdn.pixabay.com/photo/2017/08/07/13/05/blood-donation-2603649_1280.jpg" width="80" height="60" alt="img2"  onclick="changeImg(this)">
+                <img src="https://cdn.pixabay.com/photo/2018/06/26/05/08/lab-3498584_1280.jpg" width="80" height="60" alt="img3" onclick="changeImg(this)">
+            </div>
+        </div>
+        <div id="contact">
+            <h2>Participation Form</h2>
+            <p>If you have any questions or would like to participate in our blood donation events, please feel free to fill the form below</p>
+        </div>
+    </section>
+    <div>
+        <h1>Participation Form</h1>
+        <form action="">
+            <label for="Name">Name</label>
+            <input type="text" id="Name" name="Name" required>
+
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" required>
+
+            <label for="Phone">Phone</label>
+            <input type="tel" id="Phone" name="Phone" required>
+
+            <label for="Event">Event</label>
+            <select name="Event" id="Event">
+            <option value="Blood Donation Camp">Blood Donation Camp</option>
+            <option value="Blood Donation Awareness Seminar">Blood Donation Awareness Seminar</option>
+            <option value="Blood Donation Drive">Blood Donation Drive</option>
+            </select>
+
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time</label>
+            <input type="time" id="time" name="time" required>
+
+            <input type="submit" id="submit" value="Submit">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 NSS Club | All Rights Reserved</p>
+    </footer>
+    <script>
+        let slideshow = document.getElementById("slideshow");
+        let images = slideshow.getElementsByTagName("img");
+        let i = 0;
+        setInterval(function(){
+            images[i].style.display = "none";
+            i = (i + 1) % images.length;
+            images[i].style.display = "block";
+        }, 2000);
+
+        function changeImg(img){
+            document.getElementById("mainImg").src=img.src;
+        }
+
+        document.getElementById("submit").addEventListener("click", function(){
+            alert("form submitted");
+        });
+    </script>
+</body>
+</html>
