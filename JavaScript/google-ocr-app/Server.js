@@ -4,6 +4,8 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+// scikit-image. and opencv
+
 // Middleware to parse JSON bodies with increased limit
 app.use(express.json({ limit: '50mb' }));
 

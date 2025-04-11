@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 4rem;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        #output p {
+            margin: 0;
+        }
+        #output p.error {
+            color: red;
+        }
+        #output p.success {
+            color: green;
+        }
+        #output p.warning {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Current Location</h1>
+    <button id="getLocation">
+        Get Location
+    </button>
+    <div id="output">
+
+    </div>
+    <script>
+        document.getElementById('getLocation').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById('output').innerHTML = "Geolocation is not supported by this browser.";
+            }
+        });
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            let outputDiv= document.getElementById('output');
+            outputDiv.innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+        }
+        let apiKey="my apikey";
+        let url= `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1&key=${apiKey}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                let address = data.display_name;
+                let outputDiv= document.getElementById('output');
+                outputDiv.innerHTML += "<br>Address: " + address;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        function showPosition(position) {
+            .then(response => response.json())
+            .then(data => {
+                outputDiv.innerHTML += latitude + $(latitude) +"<br>Address: " + data.display_name;
+            })
+        }
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById('output').innerHTML = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById('output').innerHTML = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById('output').innerHTML = "The request to get user location timed out.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    document.getElementById('output').innerHTML = "An unknown error occurred.";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
