@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const book=[
+    {title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925},
+    {title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960},
+    {title: "1984", author: "George Orwell", year: 1949},
+    ];
+    console.log(book[0].title);
+    console.log(book[0].author);
+    console.log(book[1].author);
+
+
+    </script>
+    <script>
+        const car={
+            brand: "Toyota",
+            model: "Camry",
+            year: 2020,
+            features: ["Bluetooth", "Backup Camera", "Navigation"],
+        }
+        console.log(car.brand);
+        console.log(car.features[1]);
+        console.log(car["model"]);
+        console.log(car["features"][2]);
+        console.log(car["features"].length);
+    </script>
+
+    <script>
+        const obj ={
+            name: 'ABC',
+            age: 21,
+        };
+        const str= JSON.stringify(obj);//converting object to string
+        console.log(str);
+    </script>
+</body>
+</html>

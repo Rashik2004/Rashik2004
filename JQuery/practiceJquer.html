@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jqu"></script>
+</head>
+<body>
+    <h2 id="myText">This is a heading</h2>
+    <button id="addBtn">Add class</button>
+    <button id="removeBtn">REMOVE CLASS</button>
+    <script>
+        $(document).ready(function(){
+            $("#addBtn").click(function(){
+                $("#myText").addClass("one");
+            })
+            $("#removeBtn").click(function(){
+                $("#myText").removeClass("one");
+            })
+        });
+    </script>
+</body>
+</html>
