@@ -1,0 +1,86 @@
+<!-- Question Task:
+ 1)Create a Webpage where jquery is used for dom manipulation
+     -Text changes in a div
+     -Border chnages in a div
+     -BG - color chnages in a div;
+     2)In the same page - create a div and store a json object and json array in the same
+     3) Create another div which displays all jquery effects in it.
+     -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Jquery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .box {
+            width: 400px;
+            height: 100px;
+            margin: 20px;
+            padding: 10px;
+            border: 2px solid black;
+            text-align: center;
+        }
+        #effectsBox {
+            height: 100px;
+            margin: 20px;
+            padding: 10px;
+            border: 2px solid black;
+            text-align: center;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <div id="textBox" class="box">Original text</div>
+    <button id="changeText">Change Text</button>
+
+    <div id="borderBox" class="box">Border Box</div>
+    <button id="changeBorder">Change Border</button>
+
+    <div id="bgBox" class="box">Background Box</div>
+    <button id="changeBg">Change Background</button>
+
+    <div id="jsonBox" class="box"></div>
+
+    <div id="effectsBox" class="box">Effects Box</div>
+    <button id="toggleEffects">Toggle Effects</button>
+
+    <script>
+        $(document).ready(function () {
+            //jquery to implement the chnage text DOM
+            $("#changeText").on("click", function () {
+                $("#textBox").text("Text has been changed!");
+            });
+            //jquery to implement the chnage border DOM
+            $("#changeBorder").on("click", function () {
+                $("#borderBox").css("border", "2px solid red");
+            });
+            //jquery to implement the chnage background DOM
+            $("#changeBg").on("click", function () {
+                $("#bgBox").css("background-color", "lightblue");
+            });
+
+            //creating json object array
+            const jsonObject = { name: "Rashik", age: 21, city: "Jamshedpur" };
+            const jsonArray = ["DALMA", "TISCO", "JUBLEE PARK"];
+
+            const strObject = JSON.stringify(jsonObject); // converting object to string
+            const strArray = JSON.stringify(jsonArray); // converting array to string
+            console.log(strObject);
+            console.log(strArray);
+            $("#jsonBox").html(`JSON Object: ${strObject}<br>JSON Array: ${strArray}`);
+
+            //displaying the effects
+            $("#toggleEffects").on("click", function(){
+                $("#effectsBox").fadeToggle(1000,function(){
+                    $(this).text($(this).is(":visible") ? "Effects Box (Visible)" : "Effects Box (Hidden)");
+                });
+            });
+        });
+    </script>
+</body>
+</html>

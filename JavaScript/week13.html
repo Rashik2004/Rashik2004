@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interact</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <header class="p-4 sticky top-0 bg-white shadow-md">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="https://via.placeholder.com/50" alt="Logo" class="h-10 w-10 mr-2">
+                <h1 class="text-xl font-bold">Interact</h1>
+            </div>
+        <nav">
+            <ul class="flex space-x-4 mr-7">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">
+                        <select name="features" id="features" title="Select a feature">
+                            <option value="feature1">Feature 1</option>
+                            <option value="feature2">Feature 2</option>
+                            <option value="feature3">Feature 3</option>
+                            <option value="feature4">Feature 4</option>
+                            <option value="feature5">Feature 5</option>
+                        </select></a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">dark</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="flex bg-gray-100 mx-auto">
+        <div class="mb-20 mt-20 p-4 w-1/2 space-y-9 ml-[10%]">
+            <div>
+                <h2 class="text-6xl font-bold w-[55%]"><span class=" text-6xl bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">Interactive</span> Web Experience</h2>
+                <p class="mt-4 opacity-[50%] w-[70%]">Discover a beautifully crafted webpage with smooth animations darkmode and responsive design..</p>
+            </div>
+
+            <div flex class="space-x-4 mt-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded">Get Started</button>
+                <button class="bg-white border text-blue-500 px-4 py-2 rounded">Learn More</button>
+            </div>
+            <div class="flex items-center space-x-4">
+                <img src="https://via.placeholder.com/50" alt="Customer Review" class="h-[5px] w-[5px]">
+                <p class="text-gray-600 italic text-xs">trusted by 1000+ users <br>****</p>
+            </div>
+        </div>
+        <div class="flex m-10 w-1/2 justify-center items-center">
+            <div class="w-[300px] h-[300px] bg-white rounded-[15px] shadow-lg shadow-blue-400 p-4 flex flex-col items-center justify-center top-[50%]">
+                <img src="./brands/streamer_18993426.png" alt="Feature 1" class="h-20 w-20 mb-4 hover:scale-110 transition-transform duration-300">
+                <h3 class="text-xl font-semibold">Hello Here</h3>
+                <p class="mt-2 text-gray-600">Description of feature 1.</p>
+            </div>
+        </div>
+    </main>
+    <!-- the rolling reel of brands -->
+     <div class="flex bg-gray-300 p-6 justify-center items-center">
+        <div class="flex space-x-14 overflow-x-auto">
+            <img src="./brands/adobe-xd-logo-svgrepo-com.svg" alt="Brand 1" class="h-10 w-10">
+            <img src="./brands/airbnb-2-logo-svgrepo-com.svg" alt="Brand 2" class="h-10 w-10">
+            <img src="./brands/apple-black-logo-svgrepo-com.svg" alt="Brand 3" class="h-10 w-10">
+            <img src="./brands/creative-cloud-cc-logo-svgrepo-com.svg" alt="Brand 4" class="h-10 w-10">
+            <img src="./brands/facebook-3-logo-svgrepo-com.svg" alt="Brand 5" class="h-10 w-10">
+            <img src="./brands/ethereum-logo-svgrepo-com.svg" alt="Brand 5" class="h-10 w-10">
+            <img src="./brands/ernst-young-ey-logo-svgrepo-com.svg" alt="Brand 5" class="h-10 w-10">
+            <img src="./brands/figma-1-logo-svgrepo-com.svg" alt="Brand 5" class="h-10 w-10">
+            <img src="./brands/forbes-logo-svgrepo-com.svg" alt="Brand 5" class="h-10 w-10">
+        </div>
+     </div>
+     <!-- features -->
+     <div class="p-12 mt-10">
+        <h1 class="text-4xl text-center ">Amazing Features</h1>
+        <p class="text-center opacity-[50%] mb-10">Explore the iteractive components that make this webpage Standout</p>
+        <div>
+            <div class="grid grid-cols-3 gap-4 mt-[5%] mb-[5%] ml-[10%] mr-[10%] mx-auto">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <img src="./brands/light-bulb_1925716.png" alt="Feature 1" class="h-10 w-10 mb-4 hover:scale-110 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold">Fast Performance</h3>
+                    <p class="mt-2 text-gray-600">OptimiEd for better speed and efficient animation.</p>
+                    <img src="./images/frog-9335937_1280.jpg" alt="" class="rounded-lg">
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <img src="./brands/streamer_18993426.png" alt="Feature 2" class="h-10 w-10 mb-4 hover:scale-110 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold">Dark Mode</h3>
+                    <p class="mt-2 text-gray-600">toggles between light and dark themes with persistence preference saving</p>
+                    <img src="./images/laptop-8499942_1280.jpg" alt="" class="rounded-lg">
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <img src="./brands/streamer_18993426.png" alt="Feature 3" class="h-10 w-10 mb-4 hover:scale-110 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold">Mobile friendly</h3>
+                    <p class="mt-2 text-gray-600">Fully responsive design the works on all the devices</p>
+                    <img src="./images/lily-8157895_1280.jpg" alt="" class="rounded-lg">
+                </div>
+
+            </div>
+        </div>
+     </div>
+     <!-- animations -->
+     <div>
+        <div class="space-y-4 mb-10">
+            <h2 class="flex justify-center align-items"><span class="bg-blue-200 rounded-2xl pl-2 pr-2 pt-1 pb-1">ANIMATIONS</span></h2>
+            <h1 class=" text-6xl text-center ">Interactive Animations</h1>
+            <p class="text-center opacity-[50%] italic">Hover over the elements below to see them come to life with smooth animations</p>
+        </div>
+        <div>
+            <div class="grid grid-cols-3 gap-4 mt-[5%] mb-[5%] ml-[10%] mr-[10%] mx-auto">
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img src="./images/rotate_9264047.png" alt="Animation 1" class="h-30 w-30 mb-4 hover:scale-110 transition-transform duration-300 hover:rotate-360">
+                    <h3 class="text-xl font-semibold">Spin Animation</h3>
+                    <p class="mt-2 text-gray-600">Hover over the icon to spin smoothly.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img id="bounce" src="./images/sphere-5432787_1280.png" alt="Animation 1" class="h-30 w-30 mb-4">
+                    <h3 class="text-xl font-semibold">Bounce Animation</h3>
+                    <p class="mt-2 text-gray-600">Hover over the icon to bounce smoothly.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <img src="./images/rotate_9264047.png" alt="Animation 1" class="h-30 w-30 mb-4 hover:scale-110 transition-transform duration-300 hover:rotate-360">
+                    <h3 class="text-xl font-semibold">Pulse Animation</h3>
+                    <p class="mt-2 text-gray-600">Hover over the icon pulse gently.</p>
+                </div>
+            </div>
+        </div>
+     </div>
+
+     <!-- image gallery -->
+    <div>
+        <h1 class="text-4xl text-center font-extrabold">Image Gallery</h1>
+        <div class="grid grid-cols-3 grid-rows-2 gap-6 mt-[5%] mb-[5%] ml-[20%] mr-[20%] mx-auto">
+            <img src="./images/WhatsApp Image 2025-01-20 at 11.47.11.jpeg" alt="" class="rounded-lg">
+            <img src="./images/WhatsApp Image 2025-01-20 at 11.47.11.jpeg" alt="" class="rounded-lg">
+            <img src="./images/WhatsApp Image 2025-01-20 at 11.47.11.jpeg" alt="" class="rounded-lg">
+            <img src="./images/WhatsApp Image 2025-01-20 at 11.47.11.jpeg" alt="" class="rounded-lg">
+            <img src="./images/WhatsApp Image 2025-01-20 at 11.47.11.jpeg" alt="" class="rounded-lg">
+            <img src="./images/WhatsApp Image 2025-01-20 at 11.47.11.jpeg" alt="" class="rounded-lg">
+        </div>
+    </div>
+
+     <script>
+        const bounce = document.getElementById('bounce');
+        let bounceInterval;
+        bounce.addEventListener('mouseover', () => {
+            clearInterval(bounceInterval); // Clear any existing intervals to avoid stacking
+            bounceInterval = setInterval(() => {
+                bounce.style.transform = 'translateY(-30px)';
+                bounce.style.transition = 'transform 0.3s ease-in-out';
+                setTimeout(() => {
+                    bounce.style.transform = 'translateY(0)';
+                    bounce.style.transition = 'transform 0.3s ease-in-out';
+                }, 300); // Match the duration of the upward bounce
+            }, 700); // Repeat every 600ms (300ms up + 300ms down)
+        });
+        bounce.addEventListener('mouseout', () => {
+            clearInterval(bounceInterval); // Stop bouncing when the mouse leaves
+            bounce.style.transform = 'translateY(0)'; // Reset position
+        });
+
+
+     </script>
+</body>
+</html>
