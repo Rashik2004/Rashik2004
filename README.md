@@ -1,50 +1,35 @@
-<h1 align="center">Rashik Ghosh</h1>
+<h1 align="center">Namaste,👋 I’m Rashik Ghosh</h1>
+<h3 align="center">I am a passionate Software Engineer and Web Developer with a strong inclination toward building scalable, efficient, and user-centric digital solutions. I enjoy transforming ideas into reliable software through clean code and modern technologies.</h3>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Software%20Developer-Always%20Learning-brightgreen" alt="Software Developer">
-  <img src="https://img.shields.io/badge/Web%20Developer-Exploring%20New%20Horizons-blue" alt="Web Developer">
-</p>
----
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=rashik2004&label=Profile%20views&color=0e75b6&style=flat" alt="rashik2004" /> </p>
 
-### 👋 Namaste, I’m Rashik Ghosh
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=rashik2004" alt="rashik2004" /></a> </p>
 
-- 👀 I’m interested in crafting software solutions and exploring the dynamic realm of web development.
-- 🌱 I am proficient in MERN stack and worked upon many framework like framer, bootstrap, tailwind and many more.
-- 🌱 I have a good grasp of C and C++ languages as well as the databases like MySql, MongoDB, Postgres.
-- 🌱 Now climbing towards its upgraded sibling JAVA.
-- 💞️ Always learning, always coding: Software & Web Development.
-- 📫 Connect with me through my [GitHub profile](https://github.com/RashikGhosh) or email me at rashikghosh1918@gmail.com.
-- ⚡ Just believe in the process.
+- 🔭 I’m currently working on **we-connect-fi**
 
----
+- 🌱 I’m currently learning **Java, Spring Boot, Advanced DSA, System Design**
 
-### 🛠️ Technologies & Tools
+- 🤝 I’m looking for help with **Advanced Backend Architecture & System Design**
 
-![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+- 💬 Ask me about **React, MERN Stack, Tailwind CSS, C++, GSAP animations, Postgres, Lucide React, JWT, API(postman)**
 
----
+- 📫 How to reach me **rashikghosh1918@gmail.com**
 
-### 📈 GitHub Stats
+- ⚡ Fun fact **I debug faster at night than during the day 😄**
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=RashikGhosh&show_icons=true&theme=radical" alt="Rashik's GitHub Stats">
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://linkedin.com/in/rashik ghosh" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="rashik ghosh" height="30" width="40" /></a>
+<a href="https://www.hackerrank.com/rashikghosh1918" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="rashikghosh1918" height="30" width="40" /></a>
+<a href="https://www.leetcode.com/rashikghosh1918" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="rashikghosh1918" height="30" width="40" /></a>
+<a href="https://www.hackerearth.com/@rashikghosh1918" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerearth.svg" alt="@rashikghosh1918" height="30" width="40" /></a>
 </p>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=RashikGhosh&layout=compact&theme=radical" alt="Top Languages">
-</p>
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://www.framer.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/framer/framer-icon.svg" alt="framer" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="illustrator" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> <a href="https://www.adobe.com/products/xd.html" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/adobe-xd.svg" alt="xd" width="40" height="40"/> </a> </p>
 
----
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=rashik2004&show_icons=true&locale=en&layout=compact" alt="rashik2004" /></p>
 
-### 📫 Let's Connect and Innovate
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=rashik2004&show_icons=true&locale=en" alt="rashik2004" /></p>
 
-<p align="center">
-  <a href="https://github.com/RashikGhosh"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
-  <a href="mailto:rashikghosh1918@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
-</p>
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=rashik2004&" alt="rashik2004" /></p>
