@@ -9,7 +9,8 @@
 ### 👋 Hi, I’m Rashik Ghosh
 
 - 👀 I’m interested in crafting software solutions and exploring the dynamic realm of web development.
-- 🌱 I have a good grasp of C and C++ languages.
+- 🌱 I am proficient in MERN stack and worked upon many framework like framer, bootstrap, tailwind and many more.
+- 🌱 I have a good grasp of C and C++ languages as well as the databases like MySql, MongoDB, Postgres.
 - 🌱 Now climbing towards its upgraded sibling JAVA.
 - 💞️ Always learning, always coding: Software & Web Dev.
 - 📫 Connect with me through my [GitHub profile](https://github.com/RashikGhosh) or email me at rashikghosh1918@gmail.com.
